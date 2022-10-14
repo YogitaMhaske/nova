@@ -1,0 +1,58 @@
+<%-include('nav.ejs')%>
+<form action="/admin/save_basic_info" method="post" enctype="multipart/form-data" >
+ <div class="container-fluid bg-white p-3"> 
+    <h3 class="mb-3">Fill Company Basic Information</h3>
+  <div class="row">
+   <div class="col-md-3 mb-3">
+    Logo
+    <input type="file" class="form-control" name="company_logo" accept="image/*">
+   </div>
+   <div class="col-md-3 mb-3" >
+     <img src="/uploads/<%=company_info.company_logo%>" width="100%">
+   </div>
+   <div class="col-md-6 mb-3">
+    Company Name
+    <input type="text" class="form-control" name="company_name" value="<%=company_info.company_name%>">
+   </div>
+   <div class="col-md-6 mb-3">
+    Company Slogan
+    <input type="text" class="form-control" name="company_slogan"  value="<%=company_info.company_slogan%>">
+   </div>
+   <div class="col-md-6 mb-3">
+    Company Address 
+   <textarea class="form-control" name="company_address"><%=company_info.company_address%></textarea>
+   </div>
+   <div class="col-md-6 mb-3">
+    Company Mobile No.
+    <input type="number" class="form-control"  name="company_mobile" value="<%=company_info.company_mobile%>">
+   </div>
+   <div class="col-md-6 mb-3">
+    Company Email ID
+    <input type="email" class="form-control"  name="company_email" value="<%=company_info.company_email%>">
+   </div>
+   <div class="col-md-6 mb-3">
+    Twitter Link
+    <input type="text" class="form-control"  name="company_twitter_link" value="<%=company_info.company_twitter_link%>">
+   </div>
+   <div class="col-md-6 mb-3">
+    Facebook Link
+    <input type="text" class="form-control"  name="company_facebook_link" value="<%=company_info.company_facebook_link%>">
+   </div>
+   <div class="col-md-6 mb-3">
+    Instagram Link
+    <input type="text" class="form-control"  name="company_instagram_link" value="<%=company_info.company_instagram_link%>">
+   </div>
+   <div class="col-md-6 mb-3">
+    LinkedIn Link
+    <input type="text" class="form-control"  name="company_linkedin_link" value="<%=company_info.company_linkedin_link%>">
+   </div>
+   <div class="col-12 text-right">
+      <button class="btn btn-primary">SAVE BASIC INFO</button>
+   </div>
+  </div>
+</div>
+</form>
+<br><br>
+ 
+<%-include('footer.ejs')%>
+

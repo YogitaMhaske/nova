@@ -1,0 +1,47 @@
+<%-include('nav.ejs')%>
+
+<form action="/admin/save_update_testi" method="post" enctype="multipart/form-data" >
+    <div class="container-fluid bg-white p-3 border"> 
+       <h3 class="mb-3 text-info">EDIT TESTIMONIAL </h3>
+         <div class="row">
+             <input type="hidden" class="form-control"  name="testimonial_id" value="<%=edit_tesi[0].testimonial_id%>">
+    
+           <div class="col-md-6 mb-4">
+               Enter Name
+                <input type="text" class="form-control"  name="test_name" value="<%=edit_tesi[0].test_name%>">
+           </div>  
+           <div class="col-md-6 mb-4" >
+           Select Rating
+           <select class="form-control" name="test_rating" >
+            <option><%=edit_tesi[0].test_rating%></option>
+              <option>5 </option>
+              <option>4 </option>
+              <option>3 </option>
+              <option>2 </option>
+              <option>1 </option>
+           </select>
+            </div> 
+           <div class="col-md-3 mb-4">
+            Select Image
+             <input type="file" class="form-control"  name="test_image" accept="image/*" value="<%=edit_tesi[0].test_image%>">
+           </div>
+           <div class="col-md-3 mb-4">
+            <img src="/uploads/<%=edit_tesi[0].test_image%>" width="100%" height="200px">
+           </div>
+           <div class="col-md-6 mb-4">
+            Enter Position
+             <input type="text" class="form-control"  name="test_position" value="<%=edit_tesi[0].test_position%>">
+            </div> 
+           <div class="col-md-12 mb-4">
+            Enter Description
+             <textarea type="text" class="form-control"  name="test_desc" ><%=edit_tesi[0].test_desc%></textarea>
+            </div>    
+           <div class="col-12 mt-4">
+            <button class="btn btn-primary float-right">SAVE TESTIMONIAL INFORMATION</button>
+           </div>
+       </div>
+    </div>
+</form>
+
+
+<%-include('footer.ejs') %>

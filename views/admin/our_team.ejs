@@ -1,0 +1,71 @@
+<%-include('nav.ejs')%>
+ <form action="/admin/save_team" method="post" enctype="multipart/form-data">
+    <div class="container-fluid bg-white p-3 border"> 
+        <h3 class="mb-3 text-info">ADD NEW TEAM MEMBER</h3>
+          <div class="row">          
+                <div class="col-md-4 mb-4">
+                    Select Team Member Image
+                    <input type="file" class="form-control"  name="team_image" accept="image/*">
+                </div>   
+                <div class="col-md-4 mb-4">
+                    Enter Team Member Name
+                    <input type="text" class="form-control"  name="team_name" >
+                </div>  
+                <div class="col-md-4 mb-4">
+                    Enter Team Member Position
+                    <input type="text" class="form-control"  name="team_position" >
+                </div> 
+                <div class="col-md-6 mb-4">
+                    Enter Team Member Twitter Link
+                    <input type="url" class="form-control"  name="team_twitter_link" >
+                </div> 
+                <div class="col-md-6 mb-4">
+                    Enter Team Member Instagram Link
+                    <input type="url" class="form-control"  name="team_insta_link" >
+                </div> 
+                <div class="col-md-6 mb-4">
+                    Enter Team Member LinkedIn Link
+                    <input type="url" class="form-control"  name="team_linkedin_link" >
+                </div> 
+                <div class="col-md-6 mb-4">
+                    Enter Team Member Facebook Link
+                    <input type="url" class="form-control"  name="team_fb_link" >
+                </div>  
+                <div class="col-12 mt-4">
+                    <button class="btn btn-primary float-right">SAVE TEAM MEMBER DETAILS</button>
+                </div>
+         </div>
+     </div>
+</form>
+<br><br>
+<h3 class="text-info text-center">Team Member List</h3><br>
+<table class="table table-hover table-bordered table-responsive bg-white">
+    <tr>
+        <th>Action</th>
+        <th>SN</th>
+        <th>Team Member Name</th>
+        <th>Position</th>
+        <th>Image</th>
+        <th>LinkedIn Link</th>
+        <th>Twitter Link</th>
+        <th>Instagram Link</th>
+        <th>Facebook Link</th>
+    </tr>
+    <% for(i=0;i<teamdata.length;i++) {%>
+        <tr>
+        <td>
+            <a href="/admin/delete_team?id=<%=teamdata[i].team_id%>"><i class="fa fa-trash btn btn-sm btn-outline-danger " onclick="return confirm('Are You Sure....?')"></i></a>
+            <a href="/admin/edit_team?id=<%=teamdata[i].team_id%>"><i class="fa fa-edit btn btn-sm btn-outline-primary"></i></a>
+        </td>
+        <td><%=i+1%></td>
+        <td><%=teamdata[i].team_name%></td>
+        <td><%=teamdata[i].team_position%></td>
+        <th><img src="/uploads/<%=teamdata[i].team_image%>" height="100px" width="100px"></th>
+        <td><%=teamdata[i].team_linkedin_link%></td>
+        <td><%=teamdata[i].team_twitter_link%></td>
+        <td><%=teamdata[i].team_insta_link%></td>
+        <td><%=teamdata[i].team_fb_link%></td>     
+    </tr>
+    <% } %>
+</table>
+<%-include ('footer.ejs')%>

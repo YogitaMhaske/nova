@@ -1,0 +1,51 @@
+<%-include('nav.ejs')%>
+<main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs d-flex align-items-center" style="background-image: url('/uploads/<%=team_img[0].team_image%>');">
+      <div class="container position-relative d-flex flex-column align-items-center">
+
+        <h2>Team</h2>
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li>Team</li>
+        </ol>
+
+      </div>
+    </div><!-- End Breadcrumbs -->
+
+    <!-- ======= Team Section ======= -->
+    <section id="team" class="team">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-header">
+          <h2>Our Team</h2>
+
+        </div>
+
+        <div class="row gy-4">
+          <%for (i=0;i<team.length;i++) {%>
+          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="team-member">
+              <div class="member-img">
+                <img src="/uploads/<%=team[i].team_image%>" class="img-fluid" alt=""  style="height:300px;width:300px">
+                <div class="social">
+                  <a href="<%=team[i].team_twitter_link%>"><i class="bi bi-twitter"></i></a>
+                  <a href="<%=team[i].team_fb_link%>"><i class="bi bi-facebook"></i></a>
+                  <a href="<%=team[i].team_insta_link%>"><i class="bi bi-instagram"></i></a>
+                  <a href="<%=team[i].team_linkedin_link%>"><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+              <div class="member-info">
+                <h4><%=team[i].team_name%></h4>
+                <span><%=team[i].team_position%></span>
+            </div>
+          </div><!-- End Team Member -->
+        </div>
+        <% } %>
+      </div>
+    </section><!-- End Team Section -->
+
+  </main><!-- End #main -->
+
+ <%-include('footer.ejs')%>

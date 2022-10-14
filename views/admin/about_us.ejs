@@ -1,0 +1,71 @@
+<%-include('nav.ejs')%>
+ <form action="/admin/about_subimage" method="post" enctype="multipart/form-data">
+    <div class="container-fluid bg-white p-3 border"> 
+        <h3 class="mb-3 text-info"> About page </h3>
+          <div class="row">
+            <div class="col-md-3 mb-4">
+                 Select About SubImage
+                 <input type="file" class="form-control"  name="about_image" accept="image/*">
+            </div>  
+            <div class="col-md-3 mb-4">
+               <img src="/uploads/<%=abt_img[0].about_image%>" width="100%">
+            </div> 
+            <div class="col-md-6 mb-4">
+                 Enter About_Us Title
+                 <input type="text" name="about_title" class="form-control" value="<%=abt_img[0].about_title%>">
+            </div>   
+            <div class="col-md-12 mb-4">
+                Enter About_Us Description
+                <textarea  name="about_desc" class="form-control"><%=abt_img[0].about_desc%></textarea>
+           </div>  
+           <div class="col-12 mt-4">
+             <button class="btn btn-primary float-right">SAVE ABOUT IMAGE</button>
+          </div>
+          </div>
+     </div>
+ </form>
+ <br><br>
+
+
+ <form action="/admin/save_key_points" method="post">
+  <div class="container-fluid bg-white p-3 border">
+     <h4 class="text-info">About Us -> Key Points</h4>
+        <div class="row">
+          <div class="col-12 mb-4">
+             Enter Key Point
+             <input type="text" name="key_point" class="form-control">
+          </div>
+          <div class="col-12 mb-4">
+              <button class="btn btn-primary float-right">ADD POINT</button>
+            </div>
+        </div>
+    </div>
+ </form>
+
+ <br><br>
+ <div class="container mb-3 p-3 bg-white ">
+   <h3 class="text-info">Key Point List</h3>
+    <div class="row">
+       <div class="col-md-6 text-center"><br>
+          <table class="table table-hover table-bordered table-stripped ">
+                <tr>
+                  <th>Action</th>
+                  <th>SN</th>
+                  <th>Key Point</th>
+                </tr>
+                <% for (i=0;i<key.length;i++) { %>
+                  <tr>
+                    <td>
+                      <a href="/admin/delete_key?id=<%=key[i].key_points_id%>"><i class="fa fa-trash btn btn-outline-danger btn-sm" onclick="return confirm('Are You Sure.....?')" ></i></a>
+                      <a href="/admin/edit_key?id=<%=key[i].key_points_id%>"><i class="fa fa-edit btn btn-outline-primary btn-sm"></i></a>
+                    </td>
+                    <td><%= i+1 %></td>
+                    <td><%=key[i].key_point%></td>
+                  </tr>
+                <% } %>
+          </table>
+      </div>
+    </div>
+ </div>
+
+ <%-include('footer.ejs')%>

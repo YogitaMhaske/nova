@@ -1,0 +1,21 @@
+<%-include('nav.ejs')%>
+
+<form action="/admin/update_portfolio_type" method="post" enctype="multipart/form-data" >
+    <div class="container-fluid bg-white p-3 border"> 
+       <h3 class="mb-3 text-info">EDIT PORTFOLIO TYPE </h3>
+         <div class="row">
+            <div class="col-md-6 ">
+             <input type="hidden" name="portfolio_type_id" value="<%=edit_port_type[0].portfolio_type_id%>">
+            </div>
+           <div class="col-md-12 mb-4">
+               Edit Portfolio Type
+                <input type="text" class="form-control"  name="portfolio_type" value="<%=edit_port_type[0].portfolio_type%>">
+           </div>  
+           <div class="col-12 mt-4">
+            <button class="btn btn-primary float-right">UPDATE PORTFOLIO TYPE </button>
+           </div>
+       </div>
+    </div>
+</form>
+
+<%-include('footer.ejs')%>

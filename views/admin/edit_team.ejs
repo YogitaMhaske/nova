@@ -1,0 +1,44 @@
+<%-include('nav.ejs')%>
+ <form action="/admin/update_team" method="post" enctype="multipart/form-data">
+    <div class="container-fluid bg-white p-3 border"> 
+        <h3 class="mb-3 text-info">EDIT TEAM MEMBER DETAILS</h3>
+          <div class="row">   
+            <input type="hidden" name="team_id" value="<%=team_data[0].team_id%>">       
+                <div class="col-md-4 mb-4">
+                    Select Team Member Image
+                    <input type="file" class="form-control"  name="team_image" accept="image/*">
+                </div>  
+                <div class="col-md-4 mb-4">
+                    <img src="/uploads/<%=team_data[0].team_image%>" width="100%">                  
+                </div>
+                <div class="col-md-4 mb-4">
+                    Enter Team Member Name
+                    <input type="text" class="form-control"  name="team_name" value="<%=team_data[0].team_name%>">
+                </div>  
+                <div class="col-md-4 mb-4">
+                    Enter Team Member Position
+                    <input type="text" class="form-control"  name="team_position" value="<%=team_data[0].team_position%>">
+                </div> 
+                <div class="col-md-4 mb-4">
+                    Enter Team Member Twitter Link
+                    <input type="url" class="form-control"  name="team_twitter_link" value="<%=team_data[0].team_twitter_link%>">
+                </div> 
+                <div class="col-md-4 mb-4">
+                    Enter Team Member Instagram Link
+                    <input type="url" class="form-control"  name="team_insta_link" value="<%=team_data[0].team_insta_link%>">
+                </div> 
+                <div class="col-md-4 mb-4">
+                    Enter Team Member LinkedIn Link
+                    <input type="url" class="form-control"  name="team_linkedin_link" value="<%=team_data[0].team_linkedin_link%>">
+                </div> 
+                <div class="col-md-4 mb-4">
+                    Enter Team Member Facebook Link
+                    <input type="url" class="form-control"  name="team_fb_link" value="<%=team_data[0].team_fb_link%>">
+                </div>  
+                <div class="col-12 mt-4">
+                    <button class="btn btn-primary float-right">UPDATE TEAM MEMBER DETAILS</button>
+                </div>
+         </div>
+     </div>
+</form>
+<%-include('footer.ejs')%>

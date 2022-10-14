@@ -1,0 +1,185 @@
+<%- include('nav.ejs')%>
+  <style>
+    .hero
+  {
+  background: url("/uploads/<%=home_image[0].home_image%>") ;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  position: relative;
+  background-attachment: fixed;
+  }
+
+  .call-to-action {
+  background: linear-gradient(rgba(27, 47, 69, 0.8), rgba(46, 63, 82, 0.8)), url("/uploads/<%=call_to_action[0].call_image%>") center center;
+  background-size: cover;
+  padding: 100px 0;
+  background-attachment: fixed;
+}
+
+</style>
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="hero d-flex align-items-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-4">
+          <h2 data-aos="fade-up"><%=home_image[0].home_title%></h2>
+          <blockquote data-aos="fade-up" data-aos-delay="100">
+            <p><%=home_image[0].home_info%> </p>
+          </blockquote>
+          <div class="d-flex" data-aos="fade-up" data-aos-delay="200">
+            <a href="<%=home_image[0].get_started_link%>" class="btn-get-started">Get Started</a>
+            <a href="<%=home_image[0].video_link%> " class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section><!-- End Hero Section -->
+
+  <main id="main">
+
+    <!-- ======= Why Choose Us Section ======= -->
+    <section id="why-us" class="why-us">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-header">
+          <h2>Why Choose Us</h2>
+
+        </div>
+
+        <div class="row g-0" data-aos="fade-up" data-aos-delay="200">
+
+          <div class="col-xl-5 img-bg" style="background-image: url('/uploads/<%=wcu_image[0].wcu_image%>');"></div>
+          <div class="col-xl-7 slides  position-relative">
+
+            <div class="slides-1 swiper">
+              <div class="swiper-wrapper">
+              <% for(i=0;i<wcu_slider.length;i++){ %>
+                <div class="swiper-slide">
+                  <div class="item">
+                    <h3 class="mb-2"><%=wcu_slider[i].wcu_title%></h3>
+                    <h4 class="mb-2"><%=wcu_slider[i].wcu_sub_title%></h4>
+                    <p><%=wcu_slider[i].wcu_desc%></p>
+                  </div>
+                </div>
+                <% } %><!-- End slide item -->
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Why Choose Us Section -->
+
+    <!-- ======= Our Services Section ======= -->
+    <section id="services-list" class="services-list">
+      <div class="container" data-aos="fade-up">
+        <div class="section-header">
+          <h2>Our Services</h2>
+        </div>
+        <div class="row gy-5">
+     <% for(i=0;i<icon_service.length;i++){%>
+          <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="100">
+            <div class="icon flex-shrink-0"><i class="<%=icon_service[i].service_icon%>" style="color: #f57813;"></i></div>
+            <div>
+              <h4 class="title"><a href="#" class="stretched-link"><%=icon_service[i].service_title%></a></h4>
+              <p class="description"><%=icon_service[i].service_desc%></p>
+            </div>
+          </div>
+          <% } %>
+        </div>
+      </div>
+    </section><!-- End Our Services Section -->
+
+    <!-- ======= Call To Action Section ======= -->
+    <section id="call-to-action" class="call-to-action">
+      <div class="container" data-aos="fade-up">
+        <div class="row justify-content-center">
+          <div class="col-lg-6 text-center">
+            <h3><%=call_to_action[0].call_title%></h3>
+            <p><%=call_to_action[0].call_desc%></p>
+            <a class="cta-btn" href="#">Call To Action</a>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Call To Action Section -->
+
+    <!-- ======= Features Section ======= -->
+    <section id="features" class="features">
+
+      <div class="container" data-aos="fade-up">
+        <div class="row">
+          <div class="col-lg-7" data-aos="fade-up" data-aos-delay="100">
+            <h3>Powerful Features for <br>Your Business</h3>
+
+            <div class="row gy-4">
+      <% for(i=0;i<features.length;i++) {%>
+              <div class="col-md-6">
+                <div class="icon-list d-flex">
+                  <i class="<%=features[i].feature_icon%>" style="color: #ffbb2c;"></i>
+                  <span><%=features[i].feature%></span>
+                </div>
+              </div><!-- End Icon List Item-->
+         <% } %>
+          
+            </div>
+          </div>
+          <div class="col-lg-5 position-relative" data-aos="fade-up" data-aos-delay="200">
+            <div class="phone-wrap">
+              <img src="/uploads/<%=features_det[0].features_image%>" alt="Image"  height="600px" width="450px" >
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="details">
+        <div class="container" data-aos="fade-up" data-aos-delay="300">
+          <div class="row">
+            <div class="col-md-6">
+              <h4><%=features_det[0].features_title%></h4>
+              <p><%=features_det[0].features_desc%></p>
+              <a href="#about" class="btn-get-started">Get Started</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </section><!-- End Features Section -->
+
+    <!-- ======= Recent Blog Posts Section ======= -->
+    <section id="recent-posts" class="recent-posts">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-header">
+          <h2>Recent Blog Posts</h2>
+
+        </div>
+
+        <div class="row gy-5">
+       <% for(i=0;i<blog_det.length;i++){%>
+          <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="post-box">
+              <div class="post-img"><img src="/uploads/<%=blog_det[i].blog_image%>" alt="" height="250px" width="250px"></div>
+              <div class="meta">
+                <span class="post-date"><%=blog_det[i].blog_date%></span>
+                <span class="post-author">/<%=blog_det[i].blog_blogger%></span>
+              </div>
+              <h3 class="post-title"><%=blog_det[i].blog_title%></h3>
+              <p><%=blog_det[i].blog_desc%></p>
+              <a href="/blog_det?blog_id=<%=blog_det[i].blog_id%>" class="readmore stretched-link"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+          <% } %>
+        </div>
+      </div>
+   </section>
+  </main>
+
+  <%-include('footer.ejs')%>

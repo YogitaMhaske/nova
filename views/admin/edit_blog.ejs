@@ -1,0 +1,48 @@
+<%-include('nav.ejs')%>
+<form action="/admin/update_blog" method="post" enctype="multipart/form-data" >
+   <div class="container-fluid bg-white p-3"> 
+     <h3 class="mb-3 text-info">Edit Blog Information</h3>
+       <div class="row">
+           <input type="hidden" name="blog_id" class="form-control" value="<%=edit_blog[0].blog_id%>" >
+           <input type="hidden" name="blog_category_id" class="form-control" value="<%=edit_blog[0].blog_category_id%>" >
+
+        <div class="col-md-4 mb-3">
+            Select Category
+            <select class="form-control" name="blog_cat" required >
+               <option></option>
+               <% for(i=0;i<blog_cat.length;i++) { %>
+           <option value="<%=blog_cat[i].blog_cat%>" <%=(edit_blog[0].blog_cat==blog_cat[i].blog_cat) ? 'selected' : '' %> ><%=blog_cat[i].blog_cat%></option>
+               <% } %>
+            </select>
+         </div>
+
+           <div class="col-md-8 mb-3">
+           Enter Blog Title
+            <input type="text" class="form-control" name="blog_title" value="<%=edit_blog[0].blog_title%>">
+           </div>
+           <div class="col-md-4 mb-3">
+            Enter Blogger
+            <input type="text" class="form-control"  name="blog_blogger" value="<%=edit_blog[0].blog_blogger%>">
+           </div>
+           <div class="col-md-4 mb-3">
+            Select Blog Image
+            <input type="file" class="form-control"  name="blog_image" accept="image/*" multiple>
+           </div>
+           <div class="col-md-4 mb-3">
+              <img src="/uploads/<%=edit_blog[0].blog_image%>" width="100%" height="300px">
+           </div>
+           <div class="col-md-4 mb-3">
+             Enter Blog Date
+            <input type="date" class="form-control"  name="blog_date" value="<%=edit_blog[0].blog_date%>">
+           </div>
+           <div class="col-md-8 mb-3">
+            Enter Blog Description
+           <textarea class="form-control" name="blog_desc"><%=edit_blog[0].blog_desc%></textarea>
+           </div>
+           <div class="col-12 text-right">
+            <button class="btn btn-primary">UPDATE BLOG INFO</button>
+         </div>       
+       </div>
+    </div>
+</form>
+<%-include('footer.ejs')%>

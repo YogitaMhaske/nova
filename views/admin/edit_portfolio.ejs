@@ -1,0 +1,70 @@
+<%-include('nav.ejs')%>
+ <form action="/admin/save_update_portfolio" method="post" enctype="multipart/form-data">
+    <div class="container-fluid bg-white p-3 border"> 
+        <h3 class="mb-3 text-info">EDIT PORTFOLIO</h3>
+          <div class="row">   
+            <input type="hidden" name="portfolio_id" value="<%=port_det[0].portfolio_id%>">       
+                <div class="col-md-4 mb-4">
+                    Select Portfolio Image
+                    <input type="file" class="form-control"  name="portfolio_image" accept="image/*" multiple>
+                </div>   
+                <div class="col-md-4 mb-4">
+                    <img src="/uploads/<%=port_det[0].portfolio_image%>" width="100%">
+                </div>  
+                <div class="col-md-4 mb-4">
+                    Portfolio Title
+                    <input type="text" class="form-control"  name="portfolio_title" value="<%=port_det[0].portfolio_title%>">
+                </div>  
+                <div class="col-md-4 mb-4">
+                    Portfolio Subtitle
+                    <input type="text" class="form-control"  name="portfolio_subtitle" value="<%=port_det[0].portfolio_subtitle%>">
+                </div>  
+                <div class="col-md-4 mb-4">
+                    Portfolio Category
+                    <input type="text" class="form-control"  name="portfolio_category" value="<%=port_det[0].portfolio_category%>">
+                </div>  
+                <div class="col-md-4 mb-4">
+                    Client
+                    <input type="text" class="form-control"  name="portfolio_client" value="<%=port_det[0].portfolio_client%>">
+                </div>  
+                <div class="col-md-4 mb-4">
+                    Portfolio Date
+                <input type="date" class="form-control"  name="portfolio_date" value="<%=port_det[0].portfolio_date%>">
+                </div>  
+                <div class="col-md-4 mb-4">
+                    Portfolio URL
+                <input type="text" class="form-control"  name="portfolio_url" value="<%=port_det[0].portfolio_url%>">
+                </div> 
+                <div class="col-md-4 mb-4">
+                    Portfolio Types 
+                    <select class="form-control" name="portfolio_type_id" required>
+                        <option></option>
+                    <% for(i=0;i<port_types.length;i++) {%>
+                       <option value="<%=port_types[i].portfolio_type_id %>"
+                         <%=(port_det[0].portfolio_type_id==port_types[i].portfolio_type_id) ? 'selected' : ' ' %> > <%=port_types[i].portfolio_type%></option>
+                    <% } %>
+                    </select>
+                </div> 
+                <div class="col-12 mb-4">
+                    Portfolio Description
+                <textarea type="text" class="form-control"  name="portfolio_desc"><%=port_det[0].portfolio_desc%></textarea>
+                </div>  
+                <div class="col-12 mt-4">
+                    <button class="btn btn-primary float-right">UPDATE PORTFOLIO</button>
+                </div>
+                <div class="col-12">
+                     <% 
+                     var imgs=port_det[0].portfolio_image.split("||");
+                     for(i=0;i<imgs.length;i++)
+                     {  %>
+                        <img src="/uploads/<%=imgs[i]%>"  width="200px">
+                        <% } %>
+                </div>
+         </div>
+     </div>
+</form>
+
+<%-include('footer.ejs')%>
+
+
+

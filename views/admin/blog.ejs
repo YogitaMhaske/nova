@@ -1,0 +1,74 @@
+<%-include('nav.ejs')%>
+<form action="/admin/save_blog" method="post" enctype="multipart/form-data" >
+   <div class="container-fluid bg-white p-3"> 
+     <h3 class="mb-3">Fill Blog Information</h3>
+       <div class="row">
+            <input type="hidden" class="form-control"  name="blog_category_id"  value="<%=blog_cat[0].blog_category_id%>">
+ 
+          <div class="col-md-4 mb-3">
+            Select Category
+            <select class="form-control" name="blog_cat" required>
+               <option></option>
+               <% for(i=0;i<blog_cat.length;i++){%>
+           <option value="<%=blog_cat[i].blog_cat%>"><%=blog_cat[i].blog_cat%></option>
+               <% } %>
+            </select>
+           </div>
+           <div class="col-md-8 mb-3">
+           Enter Blog Title
+            <input type="text" class="form-control" name="blog_title" >
+           </div>
+           <div class="col-md-4 mb-3">
+            Enter Blogger
+            <input type="text" class="form-control"  name="blog_blogger" >
+           </div>
+           <div class="col-md-4 mb-3">
+             Enter Blog Date
+            <input type="date" class="form-control"  name="blog_date" >
+           </div>
+           <div class="col-md-4 mb-3">
+            Select Blog Image
+            <input type="file" class="form-control"  name="blog_image" accept="image/*" multiple>
+           </div>
+           <div class="col-md-12 mb-3">
+            Enter Blog Description
+           <textarea class="form-control" name="blog_desc"></textarea>
+           </div>
+           <div class="col-12 text-right">
+            <button class="btn btn-primary">SAVE BLOG INFO</button>
+         </div>       
+       </div>
+    </div>
+</form>
+<br><br>
+<table class="table table-bordered table-stripped table-hover table-responsive">
+  <tr>
+    <th>Action</th>
+    <th>SN</th>
+    <th>Blog Category</th>
+    <th>Blog Title</th>
+    <th>Blogger</th>
+    <th>Date</th>
+    <th>Image</th>
+    <th>Description</th>
+ </tr>
+  
+    <% for (i=0;i<blog_data.length;i++) {%>
+    <tr>
+       <td>
+         <a href="/admin/delete_blog?id=<%=blog_data[i].blog_id%>"><i class="fa fa-trash btn btn-sm btn-outline-danger" onclick=" return confirm('Are You Sure...?')"></i></a>
+         <a href="/admin/edit_blog?id=<%=blog_data[i].blog_id%>"><i class="fa fa-edit btn btn-sm btn-outline-primary"></i></a> 
+      </td>
+       <td><%= i + 1%></td>
+       <td><%=blog_data[i].blog_cat%></td>
+       <td><%=blog_data[i].blog_title%></td>
+       <td><%=blog_data[i].blog_blogger%></td>
+       <td><%=blog_data[i].blog_date%></td>
+       <th><img src='/uploads/<%=blog_data[i].blog_image%>' height="100px" width="100px"></th>
+       <td><%=blog_data[i].blog_desc%></td>
+    </tr>
+    <% } %>
+  
+</table>
+
+<%-include('footer.ejs')%>

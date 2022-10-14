@@ -1,0 +1,137 @@
+<%-include('nav.ejs')%>
+<style>
+  .call-to-action {
+  background: linear-gradient(rgba(27, 47, 69, 0.8), rgba(46, 63, 82, 0.8)), url("/uploads/<%=call_to_action[0].call_image%>") center center;
+  background-size: cover;
+  padding: 100px 0;
+  background-attachment: fixed;
+}
+</style>
+  <main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs d-flex align-items-center" style="background-image: url('/uploads/<%=about_img[0].about_image%>');">
+      <div class="container position-relative d-flex flex-column align-items-center">
+        <h2>About</h2>
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li>About</li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container" data-aos="fade-up">
+
+        <div class="row gy-4" data-aos="fade-up">
+          <div class="col-lg-4">
+            <img src="/uploads/<%=about_sub_img[0].about_image%>" style="height:400px;" class="img-fluid" alt="" >
+          </div>
+          <div class="col-lg-8">
+            <div class="content ps-lg-5">
+              <h3><%=about_sub_img[0].about_title%></h3>
+              <p>
+                <%=about_sub_img[0].about_desc%>
+              </p>
+              <ul>
+                <% for(i=0;i<key.length;i++){%>
+                <li><i class="bi bi-check-circle-fill"></i> <%=key[i].key_point  %></li>
+                <% } %>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======= Why Choose Us Section ======= -->
+    <section id="why-us" class="why-us">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-header">
+          <h2>Why Choose Us</h2>
+
+        </div>
+
+        <div class="row g-0" data-aos="fade-up" data-aos-delay="200">
+
+          <div class="col-xl-5 img-bg" style="background-image: url('/uploads/<%=wcu_image[0].wcu_image%>');height: 500px;background-size: cover;"></div>
+          <div class="col-xl-7 slides  position-relative">
+
+            <div class="slides-1 swiper">
+              <div class="swiper-wrapper">
+             <% for(i=0;i<wcu_slider.length;i++) {%>
+                <div class="swiper-slide">
+                  <div class="item">
+                    <h3 class="mb-3"><%=wcu_slider[i].wcu_title%></h3>
+                    <h4 class="mb-3"><%=wcu_slider[i].wcu_sub_title%></h4>
+                    <p><%=wcu_slider[i].wcu_desc%></p>
+                  </div>
+                </div>
+                <% } %>
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+<br><br>
+
+    <!-- ======= Call To Action Section ======= -->
+    <section id="call-to-action" class="call-to-action">
+      <div class="container" data-aos="fade-up">
+        <div class="row justify-content-center">
+          <div class="col-lg-6 text-center">
+            <h3><%=call_to_action[0].call_title%></h3>
+            <p><%=call_to_action[0].call_desc%></p>
+          <a class="cta-btn" href="#">Call To Action</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======= Team Section ======= -->
+    <section id="team" class="team">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-header">
+          <h2>Our Team</h2>
+
+        </div>
+
+        <div class="row gy-4">
+    <%for (i=0;i<team.length;i++) {%>
+          <div class="col-lg-3 col-md-6 " data-aos="fade-up" data-aos-delay="100" >
+            <div class="team-member">
+              <div class="member-img">
+                <img src="/uploads/<%=team[i].team_image%>" class="img-fluid" alt="team_member_image"  style="height:300px;width:300px">
+                <div class="social">
+                  <a href="<%=team[i].team_twitter_link%>"><i class="bi bi-twitter"></i></a>
+                  <a href="<%=team[i].team_fb_link%>"><i class="bi bi-facebook"></i></a>
+                  <a href="<%=team[i].team_insta_link%>"><i class="bi bi-instagram"></i></a>
+                  <a href="<%=team[i].team_linkedin_link%>"><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+              <div class="member-info">
+                <h4><%=team[i].team_name%></h4>
+                <span><%=team[i].team_position%></span>
+              </div>
+            </div>
+          </div>
+        <% } %>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+ <%-include('footer.ejs')%>

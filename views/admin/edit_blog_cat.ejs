@@ -1,0 +1,19 @@
+<%-include('nav.ejs')%>
+ <form action="/admin/save_blogcat" method="post" enctype="multipart/form-data">
+    <div class="container-fluid bg-white p-3 border"> 
+        <h3 class="mb-3 text-info"> Edit Blog Category </h3>
+          <div class="row">
+            <input type="hidden" name="blog_category_id" class="form-control" value="<%=blog_cat[0].blog_category_id%>">
+            <div class="col-md-8 mb-4">
+                 Enter Blog Category
+                 <input type="text" class="form-control"  name="blog_cat"  value="<%=blog_cat[0].blog_cat%>">
+            </div>  
+            <div class="col-12 mt-4">
+                <button class="btn btn-primary float-right">SAVE BLOG CATEGORY</button>
+             </div>
+             </div>
+        </div>
+    </form>
+    <br><br>
+
+    <%-include('footer.ejs')%>

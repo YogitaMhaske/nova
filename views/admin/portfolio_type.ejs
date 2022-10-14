@@ -1,0 +1,36 @@
+<%-include('nav.ejs')%>
+
+<form action="/admin/save_portfolio_type" method="post" enctype="multipart/form-data" >
+    <div class="container-fluid bg-white p-3 border"> 
+       <h3 class="mb-3 text-info">ADD PORTFOLIO TYPE </h3>
+         <div class="row">
+           <div class="col-md-12 mb-4">
+               Add Portfolio Type
+                <input type="text" class="form-control"  name="portfolio_type" >
+           </div>  
+           <div class="col-12 mt-4">
+            <button class="btn btn-primary float-right">SAVE PORTFOLIO TYPE </button>
+           </div>
+       </div>
+    </div>
+</form>
+<br><br>
+<h3 class="text-center text-info">PORTFOLIO TYPE LIST</h3><br>
+<table class="table table-stripped table-hover table-bordered bg-white">
+   <tr>
+     <th>Action</th>
+     <th>SN</th>
+     <th>Portfolio Type</th>
+   </tr>
+   <% for(i=0;i<types.length;i++) { %>
+    <tr>
+      <th>
+        <a href="/admin/delete_type?id=<%=types[i].portfolio_type_id%>"><i class="fa fa-trash btn btn-sm btn-outline-danger" onclick="return confirm ('Are You Sure ...?')"></i></a>
+        <a href="/admin/edit_type?id=<%=types[i].portfolio_type_id%>"><i class="fa fa-edit btn-sm btn btn-outline-primary"></i></a>
+      </th>
+      <th><%=i+1%></th>
+      <th><%=types[i].portfolio_type%></th>
+    </tr>
+   <% } %>
+</table>
+<%-include('footer.ejs')%>

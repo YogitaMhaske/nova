@@ -1,0 +1,36 @@
+<%- include('nav.ejs')%>
+<form action="/admin/save_blog_category" method="post" enctype="multipart/form-data">
+<div class="container-fluid bg-white p-3" >
+    <h3 class="text-info">Fill Blog Category</h3><br>
+ <div class="row border">
+   <div class="col-md-6 mb-4"><br>
+        Enter Blog Category<br>
+       <input type="text" name="blog_cat" class="form-control">
+   </div>
+   <div class="col-md-6 mb-4"><br><br>
+      <button class="btn btn-primary">SAVE BLOG CATEGORY</button>
+   </div>
+ </div>
+</div>
+</form>
+<br><br>
+<table class="table table-stripped table-hover table-bordered">
+    <tr>
+        <th>Action</th>
+        <th>SN</th>
+        <th>Blog Category</th>
+    </tr>
+    <% for(i=0;i<blog_cat.length;i++) { %>
+        <tr>
+            <td>
+                <a href="/admin/delete_blogcat?id=<%=blog_cat[i].blog_category_id%>"><i class="fa fa-trash btn btn-sm btn-outline-danger" onclick="return confirm('Are You Sure......?')"></i></a>
+                <a href="/admin/edit_blogcat?id=<%=blog_cat[i].blog_category_id%>"><i class="fa fa-edit btn btn-sm btn-outline-primary"></i></a> 
+            </td>
+            <td><%=i+1%></td>
+            <td><%=blog_cat[i].blog_cat%></td>
+        </tr>
+     <% } %>
+   
+</table>
+
+<%- include('footer.ejs')%>

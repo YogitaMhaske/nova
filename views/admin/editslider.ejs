@@ -1,0 +1,27 @@
+<%-include('nav.ejs')%>
+
+<form action="/admin/save_slider_update" method="post" enctype="multipart/form-data" >
+    <div class="container-fluid bg-white p-3 border"> 
+       <h3 class="mb-3 text-info">Why Choose Us Slider </h3>
+         <div class="row">
+            <input type="hidden" name="wcu_slider_id"  value="<%=edit_wcu_slider[0].wcu_slider_id%>">
+           <div class="col-md-6 mb-4">
+               Enter Title 
+                <input type="text" class="form-control"  name="wcu_title" value="<%=edit_wcu_slider[0].wcu_title%>">
+           </div>  
+           <div class="col-md-6 mb-4">
+            Enter Sub-Title 
+             <input type="text" class="form-control"  name="wcu_sub_title"  value="<%=edit_wcu_slider[0].wcu_sub_title%>">
+           </div>
+           <div class="col-md-6 mb-4">
+            Enter Description
+             <input type="text" class="form-control"  name="wcu_desc" value="<%=edit_wcu_slider[0].wcu_desc%>">
+            </div>    
+           <div class="col-6 mt-4">
+            <button class="btn btn-primary float-right">SAVE SLIDER INFORMATION</button>
+           </div>
+       </div>
+    </div>
+</form>
+
+<%-include('footer.ejs')%>

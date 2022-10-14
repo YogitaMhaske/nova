@@ -1,0 +1,190 @@
+<%-include('nav.ejs')%>
+
+<form action="/admin/save_home_img" method="post" enctype="multipart/form-data" >
+    <div class="container-fluid bg-white p-3 border"> 
+       <h3 class="mb-3 text-info"> Home page </h3>
+         <div class="row">
+           <div class="col-md-3 mb-3">
+                Select Home Image
+                <input type="file" class="form-control"  name="home_image" accept="image/*">
+           </div>
+           <div class="col-md-3 mb-3">
+               <img src="/uploads/<%=homedata[0].home_image%>" width="100%">
+          </div>
+           <div class="col-md-6 mb-3">
+                Home Page Title
+                <input type="text" class="form-control"  name="home_title" value="<%=homedata[0].home_title%>">
+           </div>
+           <div class="col-md-6 mb-3">
+                Home Page Info
+                <input type="text" class="form-control"  name="home_info" value="<%=homedata[0].home_info%>">
+           </div>
+           <div class="col-md-6 mb-3">
+                Get Started Link
+                <input type="text" class="form-control"  name="get_started_link" value="<%=homedata[0].get_started_link%>">
+           </div>
+           <div class="col-md-6 mb-3">
+                 Video Link
+                <input type="text" class="form-control"  name="video_link" value="<%=homedata[0].video_link%>">
+          </div>
+          <div class="col-12 mb-3">
+            <button class="btn btn-primary float-right">SAVE HOME IMAGE</button>
+         </div>
+         </div>
+    </div>
+</form>
+<br><br>
+
+<form action="/admin/save_about_img" method="post" enctype="multipart/form-data" >
+    <div class="container-fluid bg-white p-3 border"> 
+       <h3 class="mb-3 text-info"> About page </h3>
+         <div class="row">
+           <div class="col-md-3 mb-4">
+                Select About  Image
+                <input type="file" class="form-control"  name="about_image" accept="image/*">
+           </div>  
+           <div class="col-md-3 mb-4">
+              <img src="/uploads/<%=aboutdata[0].about_image%>" width="100%">
+           </div>           
+          <div class="col-6 mt-4">
+            <button class="btn btn-primary float-right">SAVE ABOUT IMAGE</button>
+         </div>
+         </div>
+    </div>
+</form>
+
+<br><br>
+<form action="/admin/save_service_img" method="post" enctype="multipart/form-data" >
+    <div class="container-fluid bg-white p-3 border"> 
+       <h3 class="mb-3 text-info"> Service page </h3>
+         <div class="row">
+           <div class="col-md-3 mb-4">
+                Select Service  Image
+                <input type="file" class="form-control"  name="service_image" accept="image/*">
+           </div>  
+           <div class="col-md-3 mb-4" >
+                 <img src="/uploads/<%=servicedata[0].service_image%>" width="100%" >
+           </div>           
+          <div class="col-6 mt-4">
+            <button class="btn btn-primary float-right">SAVE SERVICE IMAGE</button>
+         </div>
+         </div>
+    </div>
+</form>
+
+
+<br><br>
+<form action="/admin/save_portfolio_img" method="post" enctype="multipart/form-data" >
+    <div class="container-fluid bg-white p-3 border"> 
+       <h3 class="mb-3 text-info">Portfolio page </h3>
+         <div class="row">
+           <div class="col-md-3 mb-4">
+                Select Portfolio Image
+                <input type="file" class="form-control"  name="portfolio_image" accept="image/*">
+           </div> 
+           <div class="col-md-3 mb-4">
+                <img src="/uploads/<%=portfoliodata[0].portfolio_image%>"  width="100%">
+           </div>            
+          <div class="col-6 mt-4">
+            <button class="btn btn-primary float-right">SAVE PORTFOLIO IMAGE</button>
+         </div>
+         </div>
+    </div>
+</form>
+
+<br><br>
+<form action="/admin/save_portfoliodet_img" method="post" enctype="multipart/form-data" >
+     <div class="container-fluid bg-white p-3 border"> 
+        <h3 class="mb-3 text-info">Portfolio Details page </h3>
+          <div class="row">
+            <div class="col-md-3 mb-4">
+                 Select Portfolio Details Image
+                 <input type="file" class="form-control"  name="portfolio_det_image" accept="image/*">
+            </div> 
+            <div class="col-md-3 mb-4">
+               <img src="/uploads/<%=portdetdata[0].portfolio_det_image%>" width="100%">
+            </div>            
+           <div class="col-6 mt-4">
+             <button class="btn btn-primary float-right">SAVE PORTFOLIO DETAILS IMAGE</button>
+          </div>
+          </div>
+     </div>
+ </form>
+<br><br>
+<form action="/admin/save_team_img" method="post" enctype="multipart/form-data" >
+    <div class="container-fluid bg-white p-3 border"> 
+       <h3 class="mb-3 text-info">Team page </h3>
+         <div class="row">
+           <div class="col-md-3 mb-4">
+                Select Team Image
+                <input type="file" class="form-control"  name="team_image" accept="image/*">
+           </div> 
+           <div class="col-md-3 mb-4">
+               <img src="/uploads/<%=teamdata[0].team_image%>" width="100%">
+           </div>            
+          <div class="col-6 mt-4">
+            <button class="btn btn-primary float-right">SAVE TEAM IMAGE</button>
+         </div>
+         </div>
+    </div>
+</form>
+
+<br><br>
+<form action="/admin/save_blog_img" method="post" enctype="multipart/form-data" >
+    <div class="container-fluid bg-white p-3 border"> 
+       <h3 class="mb-3 text-info"> Blog page </h3>
+         <div class="row">
+           <div class="col-md-3 mb-4">
+                Select Blog  Image
+                <input type="file" class="form-control"  name="blog_image" accept="image/*">
+           </div>   
+           <div class="col-md-3 mb-4">
+               <img src="/uploads/<%=blogdata[0].blog_image%>" width="100%">
+           </div>          
+          <div class="col-6 mt-4">
+            <button class="btn btn-primary float-right">SAVE BLOG IMAGE</button>
+         </div>
+         </div>
+    </div>
+</form>
+<br><br>
+<form action="/admin/save_blogdet_img" method="post" enctype="multipart/form-data" >
+     <div class="container-fluid bg-white p-3 border"> 
+        <h3 class="mb-3 text-info">Blog Details page </h3>
+          <div class="row">
+            <div class="col-md-3 mb-4">
+                 Select Blog Details Image
+                 <input type="file" class="form-control"  name="blogdet_image" accept="image/*">
+            </div> 
+            <div class="col-md-3 mb-4">
+               <img src="/uploads/<%=blogdetdata[0].blogdet_image%>" width="100%">
+            </div>            
+           <div class="col-6 mt-4">
+             <button class="btn btn-primary float-right">SAVE BLOG DETAILS IMAGE</button>
+          </div>
+          </div>
+     </div>
+ </form>
+
+ <br><br>
+
+<form action="/admin/save_contact_img" method="post" enctype="multipart/form-data" >
+    <div class="container-fluid bg-white p-3 border"> 
+       <h3 class="mb-3 text-info"> Contact page </h3>
+         <div class="row">
+           <div class="col-md-3 mb-3">
+                Select Contact Image
+                <input type="file" class="form-control"  name="contact_image" accept="image/*">
+           </div>  
+           <div class="col-md-3 mb-3">
+             <img src="/uploads/<%=contactdata[0].contact_image%>" width="100%">
+           </div>           
+          <div class="col-6 mt-3">
+            <button class="btn btn-primary float-right">SAVE CONTACT IMAGE</button>
+         </div>
+         </div>
+    </div>
+</form>
+<br>
+<%-include('footer.ejs')%>
+

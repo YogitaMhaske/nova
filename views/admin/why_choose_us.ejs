@@ -1,0 +1,78 @@
+<%-include('nav.ejs')%>
+
+<form action="/admin/save_why_choose_us" method="post" enctype="multipart/form-data">
+    <div class="container-fluid bg-white p-3 border">
+        <h3 class="mb-3 text-info">Why Choose Us Image</h3>
+         <div class="row">
+                <div class="col-md-5 mb-3">
+                    Select Image
+                   <input type="file"  name="wcu_image" accept="image/*" class="form-control">
+                </div>
+                <div class="col-md-4 ">
+                   <img src="/uploads/<%=wcu_image[0].wcu_image%>" width="100%">
+                </div>
+                <div class="col-md-12"><br>
+                    <button class="btn btn-primary float-right">
+                         SAVE WHY CHOOSE US IMAGE
+                    </button>
+                </div>
+          </div>
+    </div>
+</form>
+<br><br>
+
+<form action="/admin/save_wcu_slider" method="post" enctype="multipart/form-data" >
+    <div class="container-fluid bg-white p-3 border"> 
+       <h3 class="mb-3 text-info">Why Choose Us Slider </h3>
+         <div class="row">
+           <div class="col-md-6 mb-4">
+               Enter Title 
+                <input type="text" class="form-control"  name="wcu_title" >
+           </div>  
+           <div class="col-md-6 mb-4">
+            Enter Sub-Title 
+             <input type="text" class="form-control"  name="wcu_sub_title" >
+           </div>
+           <div class="col-md-6 mb-4">
+            Enter Description
+             <input type="text" class="form-control"  name="wcu_desc" >
+            </div>    
+           <div class="col-6 mt-4">
+            <button class="btn btn-primary float-right">SAVE SLIDER INFORMATION</button>
+           </div>
+       </div>
+    </div>
+</form>
+
+<br><br><br>
+<div class="container bg-white p-3">
+<h3 class="text-center text-dark">Why Choose Us Slider List</h3>
+<div class="row">
+<div class="col-12">
+<br>
+<table  class="table table-hover table-responsive table-bordered table-stripped " >
+  <tr>
+    <th>Action</th>
+    <th>SN</th>
+    <th>WhyChooseUs_title</th>
+    <th>WhyChooseUs_SubTitle</th>
+    <th>WhyChooseUs_Description</th>
+  </tr>
+
+  <% for(i=0;i<wcu_slider.length;i++) { %>
+    <tr> 
+       <td>
+        <a href="/admin/delete_info?id=<%=wcu_slider[i].wcu_slider_id%>" onclick="return confirm('Are you sure....? ')"><i class="fa fa-trash btn-sm btn btn-outline-danger"></i></a>
+        <a href="/admin/edit_info?id=<%=wcu_slider[i].wcu_slider_id%>"><i class="fa fa-edit btn-sm btn btn-outline-primary"></i></a>
+       </td>
+       <td><%=i+1%></td>
+       <td><%=wcu_slider[i].wcu_title%></td>
+       <td><%=wcu_slider[i].wcu_sub_title%></td>
+       <td><%=wcu_slider[i].wcu_desc%></td>
+    </tr>
+  <% } %>
+</table>
+</div>
+</div>
+</div>
+<%-include('footer.ejs')%>

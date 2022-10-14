@@ -1,0 +1,28 @@
+<%-include('nav.ejs')%>
+ <form action="/admin/update_image_service" method="post" enctype="multipart/form-data">
+    <div class="container-fluid bg-white p-3 border"> 
+        <h3 class="mb-3 text-info"> Edit Image Services</h3>
+          <div class="row">
+            <input type="hidden" name="service_image_id" value="<%=serviceimg[0].service_image_id%>">
+            <div class="col-md-4 mb-4">
+                Select Image
+                <input  type="file" name="service_image" class="form-control" accept="image/*">
+            </div>
+            <div class="col-md-4 mb-4">
+                 <img src="/uploads/<%=serviceimg[0].service_image%>" width="100%">
+            </div>
+            <div class="col-md-4 mb-4">
+                 Enter Title
+                 <input type="text" name="image_title" class="form-control" value="<%=serviceimg[0].image_title%>" >
+            </div>
+            <div class="col-12 mb-4">
+                Enter Description
+                <input type="text" name="image_desc" class="form-control" value="<%=serviceimg[0].image_desc%>">
+           </div>
+           <div class="col-12 mb-4 text-right">
+            <button class="btn btn-primary">UPDATE IMAGE SERVICE</button>
+           </div>
+          </div>
+    </div>
+</form>
+<%-include('footer.ejs')%>

@@ -1,0 +1,128 @@
+<%-include('nav.ejs')%>
+
+  <main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs d-flex align-items-center" style="background-image: url('/uploads/<%=service[0].service_image%>');">
+      <div class="container position-relative d-flex flex-column align-items-center">
+
+        <h2>Services</h2>
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li>Services</li>
+        </ol>
+
+      </div>
+    </div><!-- End Breadcrumbs -->
+
+    <!-- ======= Our Services Section ======= -->
+    <section id="services-list" class="services-list">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-header">
+          <h2>Our Services</h2>
+
+        </div>
+
+        <div class="row gy-5">
+       <% for(i=0;i<icon_service.length;i++) {%>
+          <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="100">
+            <div class="icon flex-shrink-0"><i class="<%=icon_service[i].service_icon%>" style="color: #f57813;"></i></div>
+            <div>
+              <h4 class="title"><a href="#" class="stretched-link"><%=icon_service[i].service_title%></a></h4>
+              <p class="description"><%=icon_service[i].service_desc%></p>
+            </div>
+          </div>
+          <!-- End Service Item -->
+   <% } %>
+</div>
+
+      </div>
+    </section><!-- End Our Services Section -->
+
+    <!-- ======= Services Cards Section ======= -->
+    <section id="services-cards" class="services-cards">
+      <div class="container" data-aos="fade-up">
+
+        <div class="row gy-4">
+    <!-- <% for(i=0;i<img_service.length;i++) { %> -->
+          <!-- <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="card-item">
+              <div class="row">
+                <div class="col-xl-5" >
+                  <div class="card-bg"
+                    style="background-image: url(/uploads/<%=img_service[i].service_image%>);height:300px;max-width: 100%; background-size: cover;">67
+                  </div>
+                </div>
+                <div class="col-xl-7 d-flex align-items-center">
+                  <div class="card-body">
+                    <h4 class="card-title"><%=img_service[i].image_title%></h4>
+                    <p> <%=img_service[i].image_desc%></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div> -->
+     
+            <div class="col-md-4">
+            <div class="card" style="width:350px;height: 450px;" >
+              <img class="card-img-top" src="/uploads/<%=img_service[i].service_image%>" alt="Card image" style="width:100%;height: 200px;">
+              <div class="card-body">
+                <h4 class="card-title"><%=img_service[i].image_title%></h4>
+                <p class="card-text"><%=img_service[i].image_desc%></p>
+              </div>
+            </div>
+            <br>
+          
+          </div>
+          <!-- <% } %>         
+        </div>
+
+      </div> -->
+    </section><!-- End Services Cards Section -->
+
+    <!-- ======= Testimonials Section ======= -->
+    <section id="testimonials" class="testimonials">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-header">
+          <h2>Testimonials</h2>
+
+        </div>
+
+        <div class="slides-3 swiper" data-aos="fade-up" data-aos-delay="100">
+          <div class="swiper-wrapper">
+          <%for(i=0;i<testimonial.length;i++) { %>
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <div class="stars">                     
+                  <% var star=Number(testimonial[i].test_rating); for(j=1;j<=5;j++) { %>
+                      <% if(j<=star){%>
+                      <i class="bi bi-star-fill"></i>
+                       <%}
+                       else 
+                       { %>                        
+                         <i class="bi bi-star"></i>
+                        <% } %>                 
+                  <% } %>
+                </div>
+                <p><%=testimonial[i].test_desc%></p>
+                <div class="profile mt-auto">
+                  <img src="/uploads/<%=testimonial[i].test_image%>" class="testimonial-img" alt="">
+                  <h3><%=testimonial[i].test_name%></h3>
+                  <h4><%=testimonial[i].test_position%></h4>
+                </div>
+              </div>
+            </div><!-- End testimonial item -->
+          <% } %>
+
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+
+      </div>
+    </section><!-- End Testimonials Section -->
+
+  </main><!-- End #main -->
+
+  <%-include('footer.ejs')%>

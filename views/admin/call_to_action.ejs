@@ -1,0 +1,28 @@
+<%-include('nav.ejs')%>
+ <form action="/admin/call_to_action" method="post" enctype="multipart/form-data">
+    <div class="container-fluid bg-white p-3 border"> 
+        <h3 class="mb-3 text-info"> Call to Action page </h3>
+          <div class="row">
+            <div class="col-md-3 mb-4">
+                 Select Image
+                 <input type="file" class="form-control"  name="call_image" accept="image/*">
+            </div>  
+            <div class="col-md-3 mb-4">
+                <img src="/uploads/<%=call[0].call_image%>" width="100%">
+            </div>
+            <div class="col-md-6 mb-4">
+                 Enter  Title
+                 <input type="text" name="call_title" class="form-control" value="<%=call[0].call_title%>">
+            </div>   
+            <div class="col-md-12 mb-4">
+                Enter  Description
+                <textarea  name="call_desc" class="form-control"><%=call[0].call_desc%></textarea>
+           </div>  
+           <div class="col-12 mt-4">
+             <button class="btn btn-primary float-right">SAVE DETAILS</button>
+          </div>
+          </div>
+     </div>
+ </form>
+ <br><br>
+<%-include('footer.ejs')%>

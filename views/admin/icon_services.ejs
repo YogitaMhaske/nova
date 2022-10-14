@@ -1,0 +1,51 @@
+<%-include('nav.ejs')%>
+<form action="/admin/save_icon_service" method="post" enctype="multipart/form-data">
+ <div class="container-fluid bg-white p-3">
+  <div class="row">
+    <div class="col-12">
+          <h3 class="text-info">ADD NEW ICON SERVICE</h3>
+    </div><br><br>
+    <input type="hidden" class="form-control" name="icon_service_id">
+    <div class="col-md-6 mb-4">
+        Enter Icon class
+        <input type="text" class="form-control" name="service_icon">
+   </div>
+    <div class="col-md-6 mb-4">
+        Enter Service Title
+        <input type="text" class="form-control" name="service_title">
+    </div>
+    <div class="col-12 mb-4">
+        Enter Service Description
+        <textarea class="form-control" name="service_desc"></textarea>
+    </div>
+    <div class="col-12 text-right" >
+        <button class="btn btn-primary">Add Icon Service</button>
+    </div>
+  </div>
+ </div>
+</form>
+<br><br>
+<h3 class="text-center text-info">ICON SERVICE LIST</h3><br>
+<table class="table table-stripped table-hover table-responsive table-bordered bg-white">
+    <tr>
+        <th>Action</th>
+        <th>SN</th>
+        <th>Service Icon</th>
+        <th>Service Title</th>
+        <th>Service Description</th>
+    </tr>
+    <% for(i=0;i<icon.length;i++) { %>
+       <tr>
+         <td>
+            <a href="/admin/delete_iconservice?id=<%=icon[i].icon_service_id%>"><i class="fa fa-trash btn btn-sm btn-outline-danger" onclick="return confirm('Are You Sure....?')"></i></a>
+            <a href="/admin/edit_iconservice?id=<%=icon[i].icon_service_id%>"><i class="fa fa-edit btn btn-sm btn-outline-primary"></i></a>
+        </td>
+         <td><%=i+1%></td>
+         <td><%=icon[i].service_icon%></td>
+         <td><%=icon[i].service_title%></td>
+         <td><%=icon[i].service_desc%></td>
+       </tr>
+    <% } %>
+</table>
+
+<%-include('footer.ejs')%>

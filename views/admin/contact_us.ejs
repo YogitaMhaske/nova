@@ -1,0 +1,42 @@
+<%-include ('nav.ejs')%>
+
+<form action="/admin/save_useful_ourservices_link" method="post" enctype="multipart/form-data" >
+    <div class="container-fluid bg-white p-3"> 
+       <h3 class="mb-3 text-info">Useful Link AND Our services Points</h3><br>
+     <div class="row">
+      <div class="col-md-6 mb-3">
+      Add Useful Link Point
+       <input type="text" class="form-control" name="useful_link" >
+      </div>
+      <div class="col-md-6 mb-3">
+        Add Our Services Points
+         <input type="text" class="form-control" name="ourservices_link" >
+        </div>
+      <div class="col-12  text-right "><br>
+        <button class="btn btn-primary ">SAVE POINTS</button>
+      </div>
+      </div>
+      </div>
+</form>
+<br><br>
+
+<table class="table-bordered table-stripped table table-hover">
+  <tr>
+        <th>Action</th>
+        <th>SN</th>
+        <th>Useful Links</th>
+        <th>Our Services Links</th>
+   </tr>
+   <% for(i=0;i<link_det.length;i++) { %>
+   <tr>
+        <td>
+            <a href="/admin/delete_link?id=<%=link_det[i].link_id%>"><i class="fa fa-trash btn btn-sm btn-outline-danger" onclick="return confirm('Are You Sure.....?')"></i></a>
+            <a href="/admin/edit_link?id=<%=link_det[i].link_id%>"><i class="fa fa-edit btn btn-outline-primary btn-sm"></i></a>
+        </td>
+        <td><%= i+1 %></td>
+        <td><%=link_det[i].useful_link%></td>
+        <td><%=link_det[i].ourservices_link%></td>
+   </tr>
+   <% } %>
+</table>
+<%-include('footer.ejs')%>
