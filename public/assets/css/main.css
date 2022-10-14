@@ -650,6 +650,7 @@ section {
 .why-us .swiper {
   margin: 140px 140px 120px 140px;
   overflow: hidden;
+  height: 300px;
 }
 
 .why-us .swiper-button-prev:after,
@@ -667,7 +668,7 @@ section {
 }
 
 .why-us .swiper-pagination {
-  margin-top: 30px;
+  margin-top: 20px;
   position: relative;
 }
 

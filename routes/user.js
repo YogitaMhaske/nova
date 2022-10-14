@@ -125,4 +125,13 @@ router.get("/contact",async function(req,res){
     var links=await execute(`select * from links`)
     res.render("user/contact.ejs",{logo:logo,contact:contact,links:links})
 })
+
+router.post("/messages",async function (req,res){
+    var sql=`insert into messages (name  ,email  ,subject  ,message ) values ('${req.body.name}','${req.body.email}','${req.body.subject}','${req.body.message}')`;
+    var data=await execute(sql);
+    res.send(`<script>
+            alert('Your message has been sent. Thank you...!!!!')
+            window.location.assign('/');
+            </script>`);
+})
 module.exports=router;

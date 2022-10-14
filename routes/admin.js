@@ -1015,9 +1015,5 @@ router.post("/save_blogcat",async function(req,res){
     res.redirect('/admin/blog_type')
 })
 
-router.post("/messages",async function (req,res){
-    var sql=`insert into messages (name  ,email  ,subject  ,message ) values ('${req.body.name}','${req.body.email}','${req.body.subject}','${req.body.message}')`;
-    var data=await execute(sql);
-    res.render('admin/messages.ejs')
-})
+
 module.exports=router;
