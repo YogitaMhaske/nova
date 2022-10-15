@@ -4,6 +4,7 @@ var bodyparser=require('body-parser');
 var upload=require('express-fileupload');
 var url=require('url')
 var session=require('express-session')
+const port=process.env.PORT || 1000;
 
 app.use(bodyparser.urlencoded({extended:'true'}));
 app.use(upload());
@@ -25,4 +26,4 @@ app.use("/",userRoute);
 // app.get("/",function(req,res){
 //     res.send("data")
 // })
-app.listen(1000);
+app.listen(port);
